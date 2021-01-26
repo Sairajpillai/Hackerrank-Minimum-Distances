@@ -1,0 +1,63 @@
+
+import java.util.*;
+import java.lang.*;
+public class Main
+{
+    public static int getSmallest(int[] a, int total){  
+Arrays.sort(a);  
+return a[0];  
+}  
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+        int i,j,z=0,y=0,m=0;
+        for( i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        int[] res=new int[n];
+        int[] res2=new int[n];
+    
+        for(i=0;i<n;i++){
+             
+            for(j=i+1;j<n;j++){
+                
+                if(arr[i]==arr[j]){
+                    res[z]=i;
+                    res2[y]=j;
+                    z++;
+                    y++;
+                     
+                }
+               
+                
+            }
+        }
+        int counter=0;
+        List<Integer> list = new ArrayList<Integer>();
+        for(i=0;i<n;i++){
+            if(Math.abs(res[i]-res2[i])>0){
+                //counter++;
+                //    int[] res3=new int[counter];
+                //res3[i]+=Math.abs(res[i]-res2[i]);
+                //counter++;
+                int a=res[i];
+                int b=res2[i];
+                //System.out.println(Arrays.toString(res3));
+                
+                list.add(Math.abs(res[i]-res2[i]));
+                 
+            }
+           
+            //System.out.println(Math.abs(res[i]-res2[i]));
+        }
+        if(list.size()==0){
+            System.out.println(-1);
+        }else{
+         System.out.println(Collections.min(list));}
+        //System.out.println(Arrays.toString(res));
+        //System.out.println(Arrays.toString(res2));
+    //    System.out.println(Arrays.toString(res3));
+    //    System.out.println(getSmallest(res3,n));
+    }
+}
